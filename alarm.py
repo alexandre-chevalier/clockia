@@ -2,7 +2,7 @@ from datetime import datetime
 import time
 import random
 
-hours = [random.randint(0,23),random.randint(0,59),random.randint(0,59)]
+hours = [random.randint(9,10),random.randint(9,10),random.randint(9,10)]
 
 def setAlarm():
     
@@ -19,11 +19,17 @@ def setAlarm():
             print(link_alarm)
             return link_alarm
 
-        
-        
-    
+"""
+variable de la fonction alarme:
+times
+alarms
+format_alarms
+curren_times
+alarm_target
 
-def alarm(time, time_alarm):
+"""
+
+def alarm_message(time, time_alarm):
     print(time)
     print(time_alarm)
     
@@ -34,13 +40,10 @@ def alarm(time, time_alarm):
     current_times   = datetime.strptime(times,format_alarms) 
     alarm_target    = datetime.strptime(alarms, format_alarms)
     print(alarm_target, current_times)
-
-    
-    if current_times != alarm_target:
-
-    else:
+ 
+    if current_times == alarm_target:
         print(f"il est {time_alarm[0]}:{time_alarm[1]}:{time_alarm[2]}  bip biiip biiiiip BIIIIIIIIIIIP votre alarme sonne")
-        
-            
+    else:
+        print("ce n'est pas encore l'heure")
 
-alarm(hours, setAlarm())
+alarm_message(display_hour(), setAlarm())
