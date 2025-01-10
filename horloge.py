@@ -1,12 +1,17 @@
 import time #import du module time 
 
 def afficher_heure(h, m, s):#fonction afficher heure
+     
      print(f"{h:02}:{m:02}:{s:02}", end='\r', flush=True)#format  heure ensur la meme ligne avec les doubles chiffres et ":"
 
 def regler_alarme(h, m, s):#fonction réglage alarme 
+    h = int(input("rentrer heures: ")) #heure alarme rentré par utilisateur
+    m = int(input("rentrer minutes:"))
+    s = int(input("rentrer secondes:"))
+
     return (h, m, s) # retourne l heure de l alarme sous forme de tuple 
  
-    
+
 
 
 
@@ -14,9 +19,11 @@ def main(): #fonction principale
     s = 0 #variable secondes
     m = 0 #variable minutes
     h = 0 #variable heures
-   # alarme = None # variable alarme, commence a none
+   # alarme = None # variable alarme, commence a none(rien)
 
-    alarme = regler_alarme(0, 0, 3) #reglage heure alarme a remplir dans les parentheses
+    alarme = regler_alarme(h, m, s) #reglage heure alarme a remplir dans les parentheses
+
+
 
     while True: #boucle infini
         s += 1 #ajoute 1 a chaque fois que la boucle tourne
