@@ -15,17 +15,17 @@ def regler_alarme(h, m, s):#fonction réglage alarme
 
 
 
-def main(): #fonction principale
+def main(): #fonction principale qui execute le program
     s = 0 #variable secondes
     m = 0 #variable minutes
     h = 0 #variable heures
-   # alarme = None # variable alarme, commence a none(rien)
+   
 
-    alarme = regler_alarme(h, m, s) #reglage heure alarme a remplir dans les parentheses
+    alarme = regler_alarme(h, m, s) #reglage heure alarme a remplir dans les parentheses par moi meme
 
 
 
-    while True: #boucle infini
+    while True: #boucle infini = tant que sinon ca s arrete
         s += 1 #ajoute 1 a chaque fois que la boucle tourne
        
         if s == 60: # quand c est egale a 60
@@ -36,7 +36,7 @@ def main(): #fonction principale
             m = 0 #reviens a 0
             h += 1 # ajoutes 1
 
-        #print (f"{h:02}:{m:02}:{s:02}", end='\r', flush=True)
+       
 
         afficher_heure(h, m, s)# affiche l heure au format correct
 
