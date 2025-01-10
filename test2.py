@@ -6,11 +6,11 @@ import winsound
 ## the function display the hour with the correct format with the choice of the user ##
 def display_hour(choice):
         if choice =="Y":
-            hour = time.strftime("%I:%M:%S")
+            hour = time.strftime("%I:%M:%S %p")
             print(hour)
             time.sleep(1)
         elif choice == "N":
-            hour = time.strftime("%H:%M:%S  %p")
+            hour = time.strftime("%H:%M:%S")
             print(hour)
             time.sleep(1)
 
@@ -21,9 +21,9 @@ def main():
     music = "TheOverview.wav"
 
     ## variable to setup the alarm ##
-    alarm_hour    = input("entrez heure pour l'alarme :  ")
-    minutes= input("entrez minutes pour l'alarme :  ")
-    seconds = input("entrez heure pour l'alarme :  ")
+    alarm_hour  = input("entrez heure pour l'alarme :  ")
+    minutes     = input("entrez minutes pour l'alarme :  ")
+    seconds     = input("entrez heure pour l'alarme :  ")
    
     while True:
         ## the user choose the format of the hour he want ##
@@ -39,11 +39,11 @@ def main():
             print(hour +"    "+ alarm)
             time.sleep(1)
 
-    ## conditions to print the message of the alarm ##
-    if hour == alarm:
-        print(f"Il est {hour}  reveille toi ")
-        ## winsound.PlaySound(music, winsound.SND_FILENAME)
-        break
+        ## conditions to print the message of the alarm ##
+        if hour == alarm:
+            print(f"Il est {hour}  reveille toi ")
+            ## winsound.PlaySound(music, winsound.SND_FILENAME)
+            break
             
 
 main()
