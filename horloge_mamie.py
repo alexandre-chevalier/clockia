@@ -81,10 +81,12 @@ def main():
     elif reglage_heure == '2':  # Réglage automatique de l'heure
         now = datetime.now()
         t = (now.hour, now.minute, now.second)
-        format_heure = input("Choisissez le format de l'heure (24 pour 24h, 12 pour 12h): ")
-        while format_heure not in ['24', '12']:
-            print("Format invalide. Choisissez '24' pour le format 24h ou '12' pour le format 12h.")
+        while True:
             format_heure = input("Choisissez le format de l'heure (24 pour 24h, 12 pour 12h): ")
+            if format_heure in ['24', '12']:
+                break
+            else:
+                print("Format invalide. Choisissez '24' pour le format 24h ou '12' pour le format 12h.")
 
     # Réglage de l'alarme
     alarme_heure, alarme_minute = regler_alarme()
