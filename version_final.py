@@ -1,10 +1,10 @@
 import time
-import datetime
+from datetime import datetime
 
-def afficher_heure(H, M, S, format_heure):
+def afficher_heure(t, format_heure):
     """Affiche l'heure sous la forme choisie : HH:MM:SS en 12h ou 24h avec strftime."""
     # Créer un objet datetime avec l'heure, les minutes et les secondes
-    now = datetime(2025, 1, 1, H, M, S)  # On prend une date arbitraire, l'heure est ce qui nous intéresse
+    now = datetime(2025, 1, 1, t[0],t[1],t[2])  # On prend une date arbitraire, l'heure est ce qui nous intéresse
     
     if format_heure == '24':
         # Format 24 heures
@@ -32,12 +32,17 @@ def main():
         H = int(input("Entrez l'heure actuelle (format 24h) : "))
         M = int(input("Entrez les minutes : "))
         S = int(input("Entrez les secondes : "))
+        t=(H,M,S)
         format_heure = '24'  # Forcer le format 24h
     elif reglage_heure == '2':  # Réglage automatique de l'heure
         now = datetime.now()
         H = now.hour
         M = now.minute
         S = now.second
+        t=(H,M,S)
+        H= t[0]
+        M= t[1]
+        S= t[2]
         # Choisir le format de l'heure
         format_heure = input("Choisissez le format de l'heure (24 pour 24h, 12 pour 12h): ")
 
@@ -65,10 +70,10 @@ def main():
             H = 0
 
         # Affichage de l'heure avec le format choisi
-        afficher_heure(H, M, S, format_heure)
+        afficher_heure(t, format_heure)
 
         # Vérification si l'heure actuelle correspond à l'heure de l'alarme
-        if H == alarme_heure and M == alarme_minute and not alarme_sonnee:
+        if H== alarme_heure and M == alarme_minute and not alarme_sonnee:
             alerte_alarme()  # Affichage de l'alerte
             alarme_sonnee = True  # On marque que l'alarme a sonné, mais on ne l'arrête pas
 
