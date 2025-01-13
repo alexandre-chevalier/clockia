@@ -2,18 +2,18 @@ from datetime import datetime
 import time
 
 def display_hour(timer):
-    print(f"il est : {timer[0]:02}:{timer[1]:02}",end="\r")
+    print(f"il est : {timer[0]:02}:{timer[1]:02} h",end="\r")
 
         
 
 def alarm(hour, alarm):
     if hour[0] == alarm[0] and hour[1] == alarm[1]:
-        print(f"il est {hour[0]:02}:{hour[1]:02} reveille toi",end="\r")
+        print(f"il est {hour[0]:02}:{hour[1]:02} h reveille toi",end="\r")
         
 
 def main():
     
-    form_choice     = input("voulez vous changer de format d'heure ? Y/N").upper()
+    form_choice     = input("voulez vous changer de format d'heure ? Y/N  ").upper()
     alarm_hour      = int(input("entrez heure pour l'alarme :  "))
     alarm_minutes   = int(input("entrez minutes pour l'alarme :  "))
      
@@ -24,15 +24,12 @@ def main():
         c_seco   = current_hour.tm_sec
 
         if form_choice =="Y":
-            if c_hours == 0:
+            if c_hours == 0 or c_hours == 0:
                 current_hour_tuple = [12, c_minu]
                 alarm_tuple        = [12, alarm_minutes]
             elif c_hours < 12:
                 current_hour_tuple = [c_hours,c_minu]
                 alarm_tuple        = [alarm_hour,alarm_minutes]
-            elif c_hours == 12:
-                current_hour_tuple = [12, c_minu]
-                alarm_tuple        = [12, alarm_minutes]
             elif c_hours> 12:
                 current_hour_tuple = [c_hours - 12, c_minu]
                 alarm_tuple        = [alarm_hour - 12, alarm_minutes]
@@ -44,6 +41,7 @@ def main():
         alarm(current_hour_tuple,alarm_tuple)
 
         time.sleep(1)
+        
         
 
 main()
